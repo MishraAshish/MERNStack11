@@ -2,37 +2,6 @@
 
 //console.log("Hello World - Javascript!!") --> terminal node <filename>
 
-console.log(strName) //undefined - valid data type
-console.log(typeof strName)
-
-var strName = "Joon";
-console.log(strName);
-console.log(typeof strName) //string
-
-
-strName = 10000;
-console.log(strName); //number
-console.log(typeof strName)
-
-
-strName = 10000.52;
-console.log(strName); //number
-console.log(typeof strName)
-
-strName = {name : "Mueen", age :"26"}
-console.log(strName); //object
-console.log(typeof strName)
-
-strName = true //1==0
-console.log(strName); //boolean
-console.log(typeof strName)
-
-strName = null
-console.log(strName); //Object
-console.log(typeof strName)
-
-//undefined, null, string, number, boolean, object
-
 //functions
 function getStudentName(name) {
     console.log(name)
@@ -41,3 +10,13 @@ function getStudentName(name) {
 
 //getStudentName("Malav")
 //console.log(getStudentName("Jason"))
+
+//create a function to do the sum of 4 numbers passed in parameter
+
+function sum(a,b,c,d) {
+    console.log(d)
+    return a+b+c+d;
+    //return a+b+c+(d!= undefined? d : 0) //NaN - Not a Number
+}
+
+console.log(sum(1,2,3)) //no - 1 , yes - 7
