@@ -7,6 +7,15 @@
 // Closures : A phenomenon when we have two nested functions and the parent function returns child one, at the time of return
 // child function only return some required properties and others are kep private.
 
+// function Parent(params) {
+//     //things we specify to make private and public
+
+//     return function Child(params) {
+//         // stuffs that are retuned would be public
+//     }
+// }
+
+
 function Parent(name, age, cell) {
     var Name = name;
     var Age = age;
@@ -44,3 +53,6 @@ var childObj = childFunc(12345, true)
 
 console.log(childObj)
 
+// Create a closure with Functions - Sessions and Topics as parent and child respectively, where in Child if we pass 
+// sessionName as MERNStack it should return - MonngoDB, Express, React, Node as Topics, if we dont pass anything
+// it should return us a msg that "please enroll"
