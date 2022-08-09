@@ -45,8 +45,8 @@ student.getUserName = function (params) { //overriding the method/functions
 
 //console.log(student.age)
 //console.log(student.getAddress())
-//console.log(student.getUserName())
-//console.log(User.getUserName)
+console.log(student.getUserName())
+console.log(User.getUserName())
 
 //console.log("Student ", student.__proto__)
 //console.log("Student ", student.__proto__.__proto__)
