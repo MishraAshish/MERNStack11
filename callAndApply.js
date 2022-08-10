@@ -29,10 +29,10 @@ function PrintDetails(param, param2) {
     console.log(param2)
 }
 
-PrintDetails() //every function executes in its scope object
+//PrintDetails() //every function executes in its scope object
 
-PrintDetails.call(User, "Param1", "Param2") // we are dynamically changing context to User for PrintDetails
-PrintDetails.call(User2, "Param2.1", "Param2.2") // we are dynamically changing context to User2 for PrintDetails
+//PrintDetails.call(User, "Param1", "Param2") // we are dynamically changing context to User for PrintDetails
+//PrintDetails.call(User2, "Param2.1", "Param2.2") // we are dynamically changing context to User2 for PrintDetails
 
 
 // Apply : is used the same way call is used but, we can pass the parameters in the form of array
@@ -60,8 +60,32 @@ function GetVehicleInfo(authorised, noOfWheels, crashTest, highSpeed, countryMak
 
 
 //GetVehicleInfo.call(BMW, "YEs","5","5")
-GetVehicleInfo.apply(BMW, ["Yes","5","4","Yes","US"])
+//GetVehicleInfo.apply(BMW, ["Yes","5","4","Yes","US"])
 
-GetVehicleInfo.apply(SomeCar, ["No","3","4","Yes","Unknown"])
+//GetVehicleInfo.apply(SomeCar, ["No","3","4","Yes","Unknown"])
 
 //Print student information using call and apply and try to see how we get these functions executed immediatly
+
+
+var User = {
+    name : "Mei",
+    address : "Somewhere on earth",
+    getUser : function () {
+
+        console.log(this) //context
+        console.log(`User Details are - ${this.name}  -- ${this.address} `) 
+        
+        setTimeout(function () { //changes the context to timeout
+            console.log(this)
+            console.log(`User Details are timeout - ${this.name}  -- ${this.address} `) 
+        }, 2000) // setTimeout executes the callback function in first parameters after time supplied in second parameter(milliseconds)
+
+        setTimeout(function () { //changes the context to timeout
+            console.log(this)
+            console.log(`User Details are timeout - ${this.name}  -- ${this.address} `) 
+        //}.apply(this), 2000) // call and apply will not work as it executes immediately
+        }.bind(this), 2000) // bind attaches the context at any moment
+    }
+}
+
+User.getUser() // getUser executes on User so context (this) is User
