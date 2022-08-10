@@ -17,11 +17,11 @@ var SoftwareEnggineer = {
         }, 2000);
 
         //by using bind
-        setTimeout(function() {
+        setTimeout(function(newName) {
             //console.log(this)//this - refers to the dynamic context and here we have it as Timeout Object
-
+            console.log(newName)
             console.log(`Skill Inside SetTimeOut + ${this.Skill}`)
-        }.bind(this), 3000);
+        }.bind(this, "Jason"), 3000);
 
     }
 }
