@@ -48,7 +48,7 @@ const newVarConst_2 = "Const Lexical";
 //For const we need to assign the value as soon as we declare and reassignment is not allowed
 
 const y_const = 89;
-console.log(y_const)
+//console.log(y_const)
 
 //y_const = 90; //TypeError: Assignment to constant variable. 
 //console.log(y_const)
@@ -71,4 +71,34 @@ const User = {
 //User = {} //direct assignment to const is not possible
 User.name = "New Name" //we can update value to a constant reference
 
-console.log(User)
+//console.log(User)
+
+//console.log(k) // let doesn't support hoisting
+//let k = 0;
+
+//3. Problem with functional scope variable can be solved by lexical scoped variable 
+var index = undefined;
+// for (index = 0; index < 5; index++) {    
+//     setTimeout(function () {
+//         console.log(`index value is ${index}`) //0,1,2,3,4 - with each of 1 second delay
+//     }, 1000)
+// }
+// console.log(index) // 4, 0, 5
+
+// for (var j = 0; j < 5; j++) {    
+//     (function (jiife) {
+//         setTimeout(function () {
+//             console.log(`j value is ${jiife}`) //0,1,2,3,4 - with each of 1 second delay
+//         }, 1000)  
+//     })(j) 
+// }
+// console.log(j)
+
+
+
+for (let i = 0; i < 5 ; i++) {
+    setTimeout(function () {
+        console.log(`index value is ${i}`) //0,1,2,3,4 - with each of 1 second delay
+    }, 2000)
+}
+console.log(i) //trying to access i outside of block {}
