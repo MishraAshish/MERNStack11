@@ -102,3 +102,11 @@ for (let i = 0; i < 5 ; i++) {
     }, 2000)
 }
 console.log(i) //trying to access i outside of block {}
+
+[i = refenceOfi]
+
+// [i = 0]
+// [i = 1]
+// [i = 2]
+// [i = 3]
+// [i = 4]
