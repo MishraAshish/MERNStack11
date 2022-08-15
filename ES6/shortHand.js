@@ -32,3 +32,5 @@ console.log("Animal Sounds Stored in application are " + JSON.stringify(AnimalSo
 
 //console.log in ES6 can directly stringfy if you put comma
 console.log("Animal Sounds Stored in application are ", AnimalSoundsES6)
+
+module.exports = AnimalSoundsES6;
