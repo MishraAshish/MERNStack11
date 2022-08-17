@@ -24,10 +24,13 @@ class Vaccination
             place : this.place
         }
     }
+
+    calculateArea = (a,b)=>a*b
 }
 
 let firstDose = new Vaccination("RCL-First ","18th August", "In some hospital")
 
 console.log(firstDose.getSchedule())
+console.log(firstDose.calculateArea(5,5))
 
 //create a class to calculate area of anything
