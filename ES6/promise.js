@@ -24,6 +24,13 @@
 
 let lunchPromise = new Promise((resolve, reject)=>{
 
+            //do authentication - userid,pwd - userservice// timetaking
+            //let authenticationData = AuthenticationCall(userid, pwd);
+            //authenticationData.success ? resolve(authenticationData) : reject(authenticationData);
+
+            //let products = fetchProduct(userid) // server call to fetch user products can be secondary
+            
+
             //processing lunch party
             //promise is successful
             //make a service call - output
