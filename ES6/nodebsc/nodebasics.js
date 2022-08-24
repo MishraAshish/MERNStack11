@@ -1,44 +1,61 @@
-let myFile =  require("../assessment");
+const { log } = require('console')
+const os = require('os')
+const path = require('path')
+const util = require('util')
+const v8 = require("v8")
 
-let fs = require("fs");
-let os = require("os");
-let http = require("http");
+const cpuCount = os.cpus().length
 
-let path = require("path");
-const { dirname } = require("path");
-const EventEmitter = require("events");
-//const { Console } = require("console");
-
-//__dirname
-
-console.log(__dirname);
-console.log(__filename);
-
-os.hostname()
-os.cpus()
-
-// fs.readFile(dirname+"\nodebasics.js", (err, data)=>{
-//     console.log(err);
-//     console.log(data);
-// })
+const { readFile } = require('fs').promises
+//const readFilePromise = util.promisify(readFile)
+// readFilePromise - returns us a promise object to readfile in async way
+// readFile in this case is also a promise intent
 
 
-//EventEmitter.on("start",(err, data)=>{console.log("do something on start");})
-//EventEmitter.on("end",(err, data)=>{console.log("do something on start");})
+// global.console.log(cpuCount);
+// console.log(os.userInfo());
+// console.log(os.hostname());
+// console.log(os.release());
+// console.log(`The file name is ${path.basename(__filename)}`);
+// console.log(`The process cpu usage ${process.cpuUsage()}`);
+// console.log(`The process id ${process.pid}`);
+// console.log(`The process id ${process.versions.node}`);
 
-//REPL - read evaluate print and loop
+// console.log(process.argv); //array for what we execute in node js
 
-//ctrl+c - twice to break loop
+// const [,,fname, lname] = process.argv
+// console.log(fname);
 
-// for (let i = 0; i < 100000; i++) {
-//     console.log(i);
+// const grab = flag => { 
+//         let indexAfterFlag = process.argv.indexOf(flag) + 1 ;
+        
+//         return process.argv[indexAfterFlag]        
 // }
 
-//On a restaurant
-// Malav - 5mins
-// Mueen - 10mins
-// Mikes - 15mins
+// const greeting = grab('--greeting')
+// const user = grab('--user')
 
-// waiter -> 1 :- 5mins with cook + 10mins wait with cook + 15mins wait cook = 30 mins (Legacy)
- 
-// waiter -> 2 :- (5mins + 10 mins + 15mins) send it to cook + (once all are done) = 15 mins (JS)
+// console.log(`${greeting} ${user}`)
+
+// //Taking user inputs in run time
+// process.stdin.on('data', data =>{
+//     process.stdout.write(`\n\n ${data.toString().trim()} \n\n`)
+//     process.exit();
+// })
+// process.stdin.on('exit', data =>{
+//     process.stdout.write(`\n\n ${data.toString().trim()} \n\n`)
+// })
+
+// let myInterval = setInterval(() => {
+//     console.log("Test Me")
+//     clearInterval(myInterval)
+// }, 500);
+
+//utility module
+// util.log(path.basename(__filename))
+// util.log("path.basename(__filename)")
+
+// util.log(v8.getHeapSnapshot())
+// util.log(v8.getHeapStatistics())
+
+process.nextTick(()=>{log("Next Tick Called!!")})
