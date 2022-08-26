@@ -1,31 +1,19 @@
-// the first file for express
-console.log("this is the Server file")
-let port = 9000;
-let express = require('express');
+let express = require("express");
+let port = process.env.PORT || 9000;//use port 9000 unless there exists a preconfigured port 
 
-let app = express();//when we instantiate, it return top level express application
 
-app.get("/",(req, res)=>{
-    res.send("Hello World!!")
-})
+let app = express();//instantiating express application 
+let defaultRouter = require("./routes/defaultRouter");
+//mounting of express application
+let adminApp = express(); //initialization of express admin application
+let adminRouter = require("./routes/adminRouter");
 
-app.get("/hello",(req, res)=>{    
-    res.json({"MSG":"Hello World!!"})
-})
+// serve static files like images css using static middleware
+app.use("/static", express.static("public"))
 
-app.get("/queryme",(req, res)=>{    //localhost:9000/queryme?name=somename&age=some age
-    let qs = req.query["name"];
-    let qs2 = req.query["trainee"];
+app.use("/admin", adminApp);
+adminApp.use("/", adminRouter)
 
-    res.send(`<h1>${qs + qs2}</h1>`)
-})
+app.use("/",defaultRouter);
 
-app.get("/querybyid/:id",(req, res)=>{    //localhost:9000/querybyid/25
-    let id = req.params["id"];
-    
-    res.send(`Route param is ${id} can be used to pass data in url`)
-})
-
-app.listen(port,()=>{
-    console.log(`Express application is running on port ${port}  localhost:9000`);
-})
+app.listen(port, ()=> console.log(`server is listing as port ${port}`))
