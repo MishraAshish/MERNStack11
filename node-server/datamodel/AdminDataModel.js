@@ -16,7 +16,8 @@ let AdminUserDocSchema = new mongooseSchema({
     name : {type: String, required: true},
     age : Number,
     session : String,
-    address : String
+    address : String,
+    expertise : String
 },
 {
     versionKey: false //if we want to put it true just dont write it, and it maintains versions of mongodb doc data
