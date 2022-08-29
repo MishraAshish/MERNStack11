@@ -63,3 +63,8 @@ adminApp.get("/hello",(req, res)=>{
 app.listen(port,()=>{
     console.log(`Express application is running on port ${port}  localhost:9000`);
 })
+
+
+//create an api with name save student and pass details like - name, session, skillset in it
+//create a student model, student router, mount the same in sever.js file
+//then add one more field to student model - expertise and save the new document
