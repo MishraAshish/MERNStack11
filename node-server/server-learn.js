@@ -68,3 +68,14 @@ app.listen(port,()=>{
 //create an api with name save student and pass details like - name, session, skillset in it
 //create a student model, student router, mount the same in sever.js file
 //then add one more field to student model - expertise and save the new document
+
+
+// create a setup of node-server on your name e.g. - danny-node-server
+// create multiple routes using the express router e.g. - default, and danny-router
+// create default api's like hello and one more in default
+// create a data model using mongoose with your same or same as done with student task
+// in another router like  -student router create an api to save the student
+// also create one api to fetch all the students in json format using - model.find function
+
+// show your understanding on npm, script setup, middle-ware like static, dev-dependency, node_modules
+// package.json and package-lock.json
