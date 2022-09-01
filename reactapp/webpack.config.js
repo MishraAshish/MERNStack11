@@ -66,7 +66,7 @@ webpackConfig = {
         // https: true,
     
         //for supporting history api fallback -
-        historyApiFallback: { //localhost:9092/home
+        historyApiFallback: { //localhost:9092/home/products
           index: '/'
         },
         //compress: true,
