@@ -1,5 +1,7 @@
 //container of shopping cart application
 import React, { Component } from "react"; //React - is default import and Component - is Named import
+import Header from "./Common/HeaderComponent";
+
 
 export default class AppComponent extends Component {
 
@@ -18,6 +20,7 @@ export default class AppComponent extends Component {
         })
     }
 
+    //render method is used to create virtual dom using jsx
     render(){
         console.log("Appcomponent Rendered!!!")
         let User = {
@@ -30,9 +33,15 @@ export default class AppComponent extends Component {
                 <h1>This is Application Component</h1>
                 <div><b>{User.name}</b></div>
                 
-                <h2>{this.state.Title}</h2>
+                {/* <h2>{this.state.Title}</h2> */}
 
                 <button onClick={this.changeName}>Click To change Title</button>
+                
+                <Header title={this.state.Title}>
+                    <h4>First Name</h4>
+                    <h5>Last Name</h5>
+                </Header>
+
                 <input type={"text"} value="Enter Name"></input>
             </>            
         )        
