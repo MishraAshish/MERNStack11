@@ -1,9 +1,11 @@
 //container of shopping cart application
-import React, { Component } from "react"; //React - is default import and Component - is Named import
+import React, { Component, PureComponent } from "react"; //React - is default import and Component - is Named import
 import TestComponent from "./TestComponent";
 
-export default class Home extends Component {
+//export default class Home extends Component {
 
+//Pure component will check each and every state and props before rendering
+export default class Home extends PureComponent {
     constructor(props, context){
         super(props);
 
@@ -12,16 +14,77 @@ export default class Home extends Component {
             NumberNew : 25,
             Description : "Default Description"
         }
+
+        this.intervalValue = 1;
+        //initilize the state, view is not accessible
+        console.log("constructor")
     }
+
+    // intervalUpdate = setInterval(() => {
+    //         this.intervalValue ++;
+    //         console.log(this.intervalValue)
+    //     }, 1000);
+    
+
+    //creation life cycle method
+    componentDidMount(){
+        console.log("componentDidMount - view is ready, server calls can be made, state change can also be done")        
+        //view is accessible
+        // setTimeout(() => {
+        //     this.inputAddress.current.focus();
+        //     this.inputAddress.current.value = "New value after three seconds";
+        // },3000)        
+    }
+    
+    //destruction life cycle method
+    componentWillUnmount(){
+        console.log("Home component unmount");
+    //    clearInterval(this.intervalUpdate); 
+    }
+    
+
+    //update life cycle methods
+    //this asks us to decide whether we need to stop calling the render method on state change
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log("shouldComponentUpdate");
+    //     console.log("nextState",nextState);
+    //     console.log("nextProps", nextProps);
+        
+    //     //return true;
+    //     if (nextState.Title == this.state.Title) {
+    //         return false; //to not call the render method
+    //     } else {
+    //         return true;    
+    //     }
+    // }
+
+
+    getSnapshotBeforeUpdate(prevState, prevProps){
+        console.log("getSnapshotBeforeUpdate");
+        console.log("prevState", prevState);
+        console.log("prevProps", prevProps);
+        return {
+            prevState,
+            prevProps
+        }
+    }
+
+    componentDidUpdate(prevState, prevProps){
+        console.log("componentDidUpdate");
+        console.log("prevState",prevState);
+        console.log("prevProps", prevProps);
+    }
+
 
     changeName = ()=>{
         console.log(this.state.Title)
         this.setState({
             Title : "Updated Title on click!!",
-            NumberNew : this.state.NumberNew + 1
+            //NumberNew : this.state.NumberNew + 1
         })
 
-        //this.state.Title = "New Title"
+        // this.state.Title = "New Title";
+        // this.forceUpdate();//forcefully calls the render method, should be avoided
     }
 
     //Defined in parent Component but will be executed by childComponent
