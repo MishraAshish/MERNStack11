@@ -1,25 +1,29 @@
 //we'll create header as a functional component
 import React from "react";
 import PropTypes from "prop-types";
+import { NavLink, useNavigate } from "react-router-dom";
+
 
 let Header = (props)=>{
-    //let fNumber = 5, secondNumber = 8;
-    //props.newNumber = 100;
 
+    let navigate = useNavigate();
 
+    let func = function(event) {
+        event.preventDefault();
+        
+        navigate('/about/5000');
+    }
+
+    
     return(
         <>
-            {props.newNumber}
-            <h1>Header Data To Test {props.title}</h1>
-            {props.children[0]}
-            {props.children[1]}
-            
-            <h2></h2>
-            <button onClick={()=>props.changeNameChild("New Title is updated from Child comp")}>Change Title From Child</button>
+            Hi, Welcome to SynergisticIT Shopping Cart 
+            <div>
+                <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink> 
+                <NavLink to="/about" className="button" activeclassname="success" >About </NavLink> 
 
-            {/* {fNumber*secondNumber} 
-            {fNumber+secondNumber}
-            {fNumber-secondNumber} */}
+                <button onClick={func}>Go To About</button>
+            </div>
         </>
     )
 
