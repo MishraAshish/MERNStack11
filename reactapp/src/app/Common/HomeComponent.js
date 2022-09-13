@@ -15,9 +15,16 @@ export default class Home extends PureComponent {
             Description : "Default Description"
         }
 
-        this.intervalValue = 1;
+        this.intervalValue = 1; //normal variable not part of V-dom
         //initilize the state, view is not accessible
-        console.log("constructor")
+        console.log("constructor");
+
+        //ref - keyword uses
+        //for creating and accessing html out of react flow
+        //as we dont have any html selectors available in react so this provides a reference to html
+        this.inputAddress = React.createRef(); 
+        //this.inputAddress.current.focus(); //view can't be accessed in constructor
+        //this.inputAddress.current.value = "This value is setup in ctr"
     }
 
     // intervalUpdate = setInterval(() => {
@@ -38,8 +45,9 @@ export default class Home extends PureComponent {
     
     //destruction life cycle method
     componentWillUnmount(){
-        console.log("Home component unmount");
-    //    clearInterval(this.intervalUpdate); 
+       console.log("Home component unmount");
+       //clear all the subscriptions, any interval calls or any async update to state must be cleared
+       //clearInterval(this.intervalUpdate); 
     }
     
 
@@ -79,7 +87,8 @@ export default class Home extends PureComponent {
     changeName = ()=>{
         console.log(this.state.Title)
         this.setState({
-            Title : "Updated Title on click!!",
+            Title : "Updated Title on click!!"
+            //Title : "Updated Title on click!!" + this.intervalValue,
             //NumberNew : this.state.NumberNew + 1
         })
 
@@ -128,6 +137,7 @@ export default class Home extends PureComponent {
 
                 <button onClick={this.changeName}>Click To change Title</button>
                 
+                <input type={"text"} ref={this.inputAddress} ></input>
 
                 {/* <TestComponent newNumber={this.state.NumberNew} /> */}
                 <TestComponent newNumber={this.state.NumberNew} changeNameChild={this.changeNameFromChild} >
