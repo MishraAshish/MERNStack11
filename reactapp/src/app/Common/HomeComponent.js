@@ -12,7 +12,9 @@ export default class Home extends PureComponent {
         this.state = {
             Title : "This is initial title",
             NumberNew : 25,
-            Description : "Default Description"
+            Description : "Default Description",
+            AddressValue : "Default Address",
+            SessionValue : "Default Session"
         }
 
         this.intervalValue = 1; //normal variable not part of V-dom
@@ -23,6 +25,7 @@ export default class Home extends PureComponent {
         //for creating and accessing html out of react flow
         //as we dont have any html selectors available in react so this provides a reference to html
         this.inputAddress = React.createRef(); 
+        this.inputSession = React.createRef();
         //this.inputAddress.current.focus(); //view can't be accessed in constructor
         //this.inputAddress.current.value = "This value is setup in ctr"
     }
@@ -120,6 +123,23 @@ export default class Home extends PureComponent {
         console.log(this.state.Description)
     }
 
+    //to handle the form submission in uncontrolled react component
+    handleSubmit = ( evt )=>{ //evt - an object provided by js to check the currently invoked html
+        
+        let session = this.inputSession.current.value;
+        let addr = this.inputAddress.current.value;
+        
+        alert(`Form Submitted!!! ${session} ${addr}`);
+
+        this.setState({
+            AddressValue : addr,
+            SessionValue : session
+        })
+
+        //to stop the default behaviour of html elements
+        evt.preventDefault();
+    }
+    
     //render method is used to create virtual dom using jsx
     render(){
         console.log("Appcomponent Rendered!!!")
@@ -137,7 +157,7 @@ export default class Home extends PureComponent {
 
                 <button onClick={this.changeName}>Click To change Title</button>
                 
-                <input type={"text"} ref={this.inputAddress} ></input>
+                {/* <input type={"text"} ref={this.inputAddress} ></input> */}
 
                 {/* <TestComponent newNumber={this.state.NumberNew} /> */}
                 <TestComponent newNumber={this.state.NumberNew} changeNameChild={this.changeNameFromChild} >
@@ -147,8 +167,32 @@ export default class Home extends PureComponent {
                 
                 </TestComponent>
 
+                {/* controllled component */}
                 <input type={"text"} value={this.state.Description} onChange={this.changeDesc}></input>
 
+
+                      {/* We are going to create an uncontrolled html form with html elements, 
+        it is controlled element values are not going to be part of react state */}
+            <div>
+                 <form onSubmit={this.handleSubmit} action="action/submitUser">
+                     <label>
+                             Session Name:
+                             <input type="text" ref={this.inputSession} placeholder="Please enter session"/>
+                     </label>                    
+                     <label>
+                             Address:
+                             <input type="text" ref={this.inputAddress} placeholder="Please enter address"/>
+                     </label>
+
+                     <input type="submit" value="Submit" />
+
+                     <div>
+                             Session: {this.state.SessionValue}
+                             <br/>
+                             New Address: {this.state.AddressValue}
+                     </div>
+                 </form>
+             </div>
             </>            
         )        
     }
