@@ -149,31 +149,47 @@ export default class Home extends PureComponent {
         //we'll write our html + js in JSX (javascript as xml) format as below
         //it must return only one parent //it is also termed as virtual DOM
         return(
-            <>
-                <h1>{ this.props.title }</h1>
+            <div className={"loadimage form"} >
+                <h1>{this.state.title}</h1>
+                <b className="feature">{"Product Feature's :"}</b>
+                <ul>                     
+                    <li>Sign up new users</li>
+                    <li>Login existing users.</li>                
+                    <li>Allow user's to add to cart.</li>
+                    <li>Save the user's cart.</li>
+                    <li>Checkout and pay for items.</li>
+                    <li>Allow users to cancel the order.</li>
+                    <li>Allow users to reorder the cart.</li>
+                    <li>Add products/items to create product collection.</li>
+                    <li>Allow users to give ratings to each product.</li>
+                    <li>Have notifications on top right with logout.</li>
+                </ul>
+        
+            
+                {/* <h1>{ this.props.title }</h1>
                 <div><b>{User.name}</b></div>
                 
                 <h2>{this.state.Title}</h2>
 
                 <button onClick={this.changeName}>Click To change Title</button>
-                
+                 */}
                 {/* <input type={"text"} ref={this.inputAddress} ></input> */}
 
                 {/* <TestComponent newNumber={this.state.NumberNew} /> */}
-                <TestComponent newNumber={this.state.NumberNew} changeNameChild={this.changeNameFromChild} >
+                {/* <TestComponent newNumber={this.state.NumberNew} changeNameChild={this.changeNameFromChild} >
 
                     <h4>First Child HTML Passed from Parent</h4>
                     <h5>Second Child HTML passed from Parent</h5>
                 
-                </TestComponent>
+                </TestComponent> */}
 
                 {/* controllled component */}
-                <input type={"text"} value={this.state.Description} onChange={this.changeDesc}></input>
+                {/* <input type={"text"} value={this.state.Description} onChange={this.changeDesc}></input> */}
 
 
                       {/* We are going to create an uncontrolled html form with html elements, 
         it is controlled element values are not going to be part of react state */}
-            <div>
+            {/* <div>
                  <form onSubmit={this.handleSubmit} action="action/submitUser">
                      <label>
                              Session Name:
@@ -192,8 +208,8 @@ export default class Home extends PureComponent {
                              New Address: {this.state.AddressValue}
                      </div>
                  </form>
-             </div>
-            </>            
+             </div> */}
+        </div>
         )        
     }
 

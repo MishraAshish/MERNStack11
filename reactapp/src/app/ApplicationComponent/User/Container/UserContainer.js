@@ -1,0 +1,1 @@
+//here we'll connect User Component with Redux using connect, mapStateToProps and mapDispatchToProps

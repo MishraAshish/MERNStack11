@@ -20,9 +20,10 @@ let Header = (props)=>{
             Hi, Welcome to SynergisticIT Shopping Cart 
             <div>
                 <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink> 
+                <NavLink to="/user" className="button" activeclassname="success" >User </NavLink> 
                 <NavLink to="/about" className="button" activeclassname="success" >About </NavLink> 
 
-                <button onClick={func}>Go To About</button>
+                {/* <button onClick={func}>Go To About</button> */}
             </div>
         </>
     )
@@ -34,9 +35,9 @@ let Header = (props)=>{
 //     title : "Header Default Component"
 // }
 
-Header.propTypes = {
-    newNumber : PropTypes.number.isRequired,
-    title : PropTypes.string.isRequired
-}
+// Header.propTypes = {
+//     newNumber : PropTypes.number.isRequired,
+//     title : PropTypes.string.isRequired
+// }
 
 export default Header;

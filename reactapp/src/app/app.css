@@ -380,7 +380,7 @@ optgroup {
 }
 .loadimage{
   /* background: url("https://www.synergisticit.com/wp-content/themes/synergisticit/images/hm_pic4.jpg") right no-repeat; */
-  /* background: './images/hm_pic4.jpg' right no-repeat; */
+  background: url('./images/hm_pic4.jpg') right no-repeat;
   background-repeat: no-repeat;
   background-position: right;
   height: 450px;
@@ -388,18 +388,18 @@ optgroup {
   background-color: #046dc9;
   padding: 5px;  
   text-align: left;
-  color: #f5f5f5;
+  color: #e97324;
   /* border-radius: 50%; */
 }
 .loadimage ul{
   padding-top: 10px;
 }
 .loadimage ul li{
-  color: #f0dd38f6; 
+  color:rgb(231, 238, 130); 
   cursor : pointer;
 }
 .loadimage ul li:hover{
-  color: rgb(98, 228, 189); 
+  color: #e97324; 
 }
 
 .loadimage .feature{
