@@ -5,6 +5,8 @@ let UserDataModel = require("../dataModel/UserDataModel");
 
 router.post("/api/signinup",(req, res)=>{
 
+    console.log(req.body);
+    
     UserDataModel.findOne({userName : req.body.userName},(err, userData)=>{
 
         if(err){
@@ -31,3 +33,5 @@ router.post("/api/signinup",(req, res)=>{
 
     })
 })
+
+module.exports = router;

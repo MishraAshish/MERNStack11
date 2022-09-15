@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { NavLink, useNavigate } from "react-router-dom";
-
+import { connect } from "react-redux";
 
 let Header = (props)=>{
 
@@ -17,7 +17,7 @@ let Header = (props)=>{
     
     return(
         <>
-            Hi, Welcome to SynergisticIT Shopping Cart 
+            Hi, <b>{props.user && props.user.userName ? props.user.userName : "Tom"}</b> Welcome to SynergisticIT Shopping Cart 
             <div>
                 <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink> 
                 <NavLink to="/user" className="button" activeclassname="success" >User </NavLink> 
@@ -40,4 +40,12 @@ let Header = (props)=>{
 //     title : PropTypes.string.isRequired
 // }
 
-export default Header;
+
+//subsrcibing to store for user information
+let mapStateToProps = (state)=>{
+    return {
+        user : state.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps, null)(Header);

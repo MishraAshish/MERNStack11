@@ -7,10 +7,10 @@ export default class User extends Component {
         super(props);
 
         this.state = {
-            userName : "",
-            password : "",
-            street : "",
-            mobile : ""
+            userName : props.user.userName,
+            password : props.user.password,
+            street : props.user.street,
+            mobile : props.user.mobile
         }
     }
 
@@ -38,6 +38,15 @@ export default class User extends Component {
             })    
         }
 
+        evt.preventDefault();
+    }
+
+    loginUser = (evt)=>{
+        //alert("This user will be saved in db "+ JSON.stringify(this.state));
+        
+        //this.props.addUserToStoreFunc(this.state)
+        
+        this.props.signInUserDB(this.state);
         evt.preventDefault();
     }
 
@@ -80,6 +89,11 @@ export default class User extends Component {
                             onChange={this.onTextChange} />
                         </div>
 
+                        {/* {this.props.user._id} */}
+
+                     <input type="button" className={"btn btn-primary col-md-2 saveUser"} 
+                            value={"SignIn-Up"} 
+                            onClick={this.loginUser}/>
                     </div>
                 </section>
             </>

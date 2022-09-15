@@ -7,8 +7,8 @@ import FooterComponent from "./Common/FooterComponent";
 import Home from "./Common/HomeComponent";
 import About from "./Common/AboutComponent";
 import NotFound from "./Common/NotFoundComponent";
-import User from "./ApplicationComponent/User/Component/UserComponent";
-
+// import User from "./ApplicationComponent/User/Component/UserComponent";
+import User from "./ApplicationComponent/User/Container/UserContainer";
 
 export default class AppComponent extends Component {
 
