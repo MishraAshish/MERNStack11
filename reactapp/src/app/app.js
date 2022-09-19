@@ -9,6 +9,8 @@ import About from "./Common/AboutComponent";
 import NotFound from "./Common/NotFoundComponent";
 // import User from "./ApplicationComponent/User/Component/UserComponent";
 import User from "./ApplicationComponent/User/Container/UserContainer";
+import UserHook from "./ApplicationComponent/User/Component/UserHook";
+
 
 export default class AppComponent extends Component {
 
@@ -25,6 +27,7 @@ export default class AppComponent extends Component {
                         <Route path="/" element={<Home  title="Home Component" />} />
                         <Route path="/home" element={<Home  title="Home Component" />} />
                         <Route path="/user" element={<User />} />
+                        <Route path="/hook" element={<UserHook />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />} />
