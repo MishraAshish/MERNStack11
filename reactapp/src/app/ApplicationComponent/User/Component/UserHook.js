@@ -91,3 +91,9 @@ let UserHook = (props)=>{
 }
 
 export default UserHook;
+
+
+//create everything with User2 => User2 - Component, Container, Action, Reducer, add reducer to Store
+//User2 router, signInUpUser2-api, dataModel, user2ExpressApp(server.js)
+
+//CreateUser2Hooks and integrate that with Header Link 
