@@ -9,6 +9,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import thunk from "redux-thunk"; //is used to pipeline the dispatched objects and give us a feeling of sync execution by being async
 
 import userReducer from "./User/UserReducer";
+import productReducer from "./Product/ProductReducer";
 
 //custom middleware function to log action raised
 let logger = () => (next) => (action) => {
@@ -19,7 +20,7 @@ let logger = () => (next) => (action) => {
 
 const rootReducer = combineReducers({
     userReducer, //userReducer : userReducer       
-   // productReducer,
+    productReducer,
 });
 
 
