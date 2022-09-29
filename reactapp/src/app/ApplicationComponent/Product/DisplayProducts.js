@@ -17,7 +17,7 @@ let DisplayProducts = (props)=>{
     return(
         <>
             <h2>Below are products we can add to cart!!</h2>
-
+            <div>
                 {productList && productList.length>0 ?
                     productList.map(product=>{
                         //return JSON.stringify(product)
@@ -25,6 +25,7 @@ let DisplayProducts = (props)=>{
                     }):
                     "No Product Found!!"
                 }
+            </div>
         </>
     )
 
