@@ -14,6 +14,9 @@ let userRouter = require("./routes/userRouter");
 let productApp = express();
 let productRouter = require("./routes/productRouter");
 
+let cartApp = express();
+let carttRouter = require("./routes/cartRouter");
+
 
 //middle ware to allow cross origin access
 app.use(cors())//to allow other domains like port:9092 access the api's in 9000 port
@@ -28,7 +31,10 @@ app.use("/admin", adminApp);
 adminApp.use("/", adminRouter)
 
 app.use("/product", productApp);
-productApp.use("/", productRouter)
+productApp.use("/", productRouter);
+
+app.use("/cart", cartApp);
+cartApp.use("/", carttRouter);
 
 
 app.use("/user", userApp); //signin api path => localhost:9000/user/api/signinup

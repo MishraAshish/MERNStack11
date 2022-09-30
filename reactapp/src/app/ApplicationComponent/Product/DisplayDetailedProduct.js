@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addItemToCart } from "../../State/Cart/CartAction";
 
 let DisplayDetailedProduct = ({product})=>{
 
     let [showHide, toggleShowHide] = useState(false)
 
-//    let dispatchToAddProduct = useDispatch();
+    let dispatchToAddProduct = useDispatch();
 
+    let cartList = useSelector((state)=>state.cartReducer);
+
+    let addProductToCart = ( product )=>{
+        dispatchToAddProduct(addItemToCart(product))
+    }
   
     return(
         <ul className="product">
@@ -16,6 +24,7 @@ let DisplayDetailedProduct = ({product})=>{
                     <li>{product.price}</li>
                     <li>{product.desc}</li>
                     <li>{product.rating}</li> 
+                    <button onClick={()=>{addProductToCart(product)}}>Add To Cart</button>
                 </ul>: " "}
             </li>
         </ul>

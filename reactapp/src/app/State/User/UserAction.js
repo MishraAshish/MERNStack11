@@ -3,7 +3,7 @@
 import * as ActionTypes from "../actionTypes";
 import axios from "axios";
 
-//import { getUserCart } from "../Cart/CartAction";
+import { getUserCart } from "../Cart/CartAction";
 
 export const addUserToStoreAction = (user)=>
 {
@@ -27,10 +27,10 @@ export const signInSignUpUser = (user)=>{
                     )
                     .then((ServerData)=>{
                         let signdUser = ServerData.data;
-                        alert(JSON.stringify(signdUser))
+                        //alert(JSON.stringify(signdUser))
                         //sending user to the store
                         dispatch(addUserToStoreAction(signdUser));//dispatching action with signed user 
-                        //dispatch(getUserCart(signedUser.data._id))
+                        dispatch(getUserCart(signdUser._id))
                     })
                     .catch((err)=>{
                         console.log("err in login ", err)
