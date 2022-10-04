@@ -13,7 +13,7 @@ import User from "./ApplicationComponent/User/Component/UserHook";
 import Product from "./ApplicationComponent/Product/ProductComponent";
 import Display from "./ApplicationComponent/Product/DisplayProducts";
 import Cart from "./ApplicationComponent/Cart/CartComponent";
-
+import Checkout from "./ApplicationComponent/Checkout/CheckoutComponent"; 
 
 export default class AppComponent extends Component {
 
@@ -33,6 +33,7 @@ export default class AppComponent extends Component {
                         <Route path="/product" element={<Product />} /> 
                         <Route path="/display" element={<Display />} /> 
                         <Route path="/cart" element={<Cart />} /> 
+                        <Route path="/checkout" element={<Checkout />} /> 
                         <Route path="/about" element={<About />} />
                         <Route path="/about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />} />

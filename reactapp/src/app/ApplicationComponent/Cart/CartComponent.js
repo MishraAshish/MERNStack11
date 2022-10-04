@@ -50,7 +50,7 @@ let CartComponent = (props)=>{
 
     return(
         <>
-            <h1>Cart Component</h1>
+            {props.readOnly ?"" : <h1>Cart Component</h1>}
             {cartList && cartList.length > 0 ? 
                 <Fragment>
                 <table>
@@ -86,7 +86,7 @@ let CartComponent = (props)=>{
                         </tbody>
                     </table>
 
-                    <CartSummaryComponent data={recalculate(cartList)}/>
+                    <CartSummaryComponent data={recalculate(cartList)} readOnly={props.readOnly}/>
                     {
                         props.readOnly ? "" : 
                             <Fragment>
