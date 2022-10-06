@@ -1,19 +1,22 @@
 //container of shopping cart application
-import React, { Component } from "react"; //React - is default import and Component - is Named import
-import Header from "./Common/HeaderComponent";
+import React, { Component, lazy, Suspense } from "react"; //React - is default import and Component - is Named import
 import {BrowserRouter as Router, Routes, Redirect, Route} from "react-router-dom";// browser router from react
 import "./app.css";
-import FooterComponent from "./Common/FooterComponent";
-import Home from "./Common/HomeComponent";
-import About from "./Common/AboutComponent";
-import NotFound from "./Common/NotFoundComponent";
+
+let Header = lazy(()=> import("./Common/HeaderComponent"));
+let Footer = lazy(()=> import("./Common/FooterComponent"));
+let Home = lazy(()=> import("./Common/HomeComponent"));
+let About = lazy(()=> import("./Common/AboutComponent"));
+let NotFound = lazy(()=> import("./Common/NotFoundComponent"));
 // import User from "./ApplicationComponent/User/Component/UserComponent";
 //import User from "./ApplicationComponent/User/Container/UserContainer";
-import User from "./ApplicationComponent/User/Component/UserHook";
-import Product from "./ApplicationComponent/Product/ProductComponent";
-import Display from "./ApplicationComponent/Product/DisplayProducts";
-import Cart from "./ApplicationComponent/Cart/CartComponent";
-import Checkout from "./ApplicationComponent/Checkout/CheckoutComponent"; 
+let User = lazy(()=> import("./ApplicationComponent/User/Component/UserHook"));
+let Product = lazy(()=> import("./ApplicationComponent/Product/ProductComponent"));
+let Display = lazy(()=> import("./ApplicationComponent/Product/DisplayProducts"));
+let Cart = lazy(()=> import("./ApplicationComponent/Cart/CartComponent"));
+let Checkout = lazy(()=> import("./ApplicationComponent/Checkout/CheckoutComponent")); 
+let Coupon = lazy(()=> import("./ApplicationComponent/Coupon/CouponComponent")); 
+
 
 export default class AppComponent extends Component {
 
@@ -23,6 +26,7 @@ export default class AppComponent extends Component {
         //it must return only one parent //it is also termed as virtual DOM
         return(
             <Router>
+                <Suspense fallback={<div>Loading...</div>}>
                 <Header />
                     {/* Here we'll use switch based conditions to render one component at a time */}
                     <Routes>
@@ -34,11 +38,13 @@ export default class AppComponent extends Component {
                         <Route path="/display" element={<Display />} /> 
                         <Route path="/cart" element={<Cart />} /> 
                         <Route path="/checkout" element={<Checkout />} /> 
+                        <Route path="/coupon" element={<Coupon />} /> 
                         <Route path="/about" element={<About />} />
                         <Route path="/about/:id" element={<About />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
-                <FooterComponent />
+                    <Footer />
+                </Suspense>
             </Router>
         )        
     }
