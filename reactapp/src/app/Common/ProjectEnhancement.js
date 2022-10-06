@@ -1,4 +1,19 @@
-// 06-10-2022 - Recentorder Page 
+// 10-10-2022 - Practice Question
+
+// Reorder
+// User to reorder from recent orders or from cancelled orders
+// A Simple process just add the order to your cart and replace or merge whatever is present in cart
+
+// 10-10-2022 - Practice Question
+
+//Upon Cancel Click
+// Save the order to CancelledOrders collection (should have userid, cancelled, dateTime)
+// Make API to Save and Fetch from CancelledOrders
+// Make a component CancelledOrders to Show all cancelled Orders of current user in Latest First
+// Add a button to Buy Again, (also show a message - This offer is much more exciting)
+// Upon Adding this should get appended to the existing Cart that is shown in Carts App
+
+// 07-10-2022 - Recentorder Page 
 // Upon MakePayment Click
 // Save the cart to RecentOrders collection (should have userid, order, dateTime)
 // Make API to Save and Fetch from RecentOrders
